@@ -42,22 +42,6 @@ function App() {
           ))
   },[])
 
-  // useEffect(()=>{
-  //   fetch('/bets',{
-  //     method: "POST",
-  //     headers: {
-  //         'Accept': 'application/json',
-  //         'Content-Type': 'application/json'
-  //       },
-  //     body: JSON.stringify(teamBets),
-  //   })
-  //   .then(res=>res.json())
-  //   .then(data=>(
-  //       console.log(data),
-  //       setTeamBets(data)
-  //       ))
-  //   },[])
-
   return (
     <FavoriteContext.Provider value={[favorites,setFavorites]}>
       <Router>
@@ -65,8 +49,8 @@ function App() {
           <NavBar user = {user} setUser = {setUser} />
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/bets" element={<Bets teamBets={teamBets}/>} />
-              <Route path="/favorites" element={<Favorites teamBets={teamBets}/>} />
+              <Route path="/bets" element={<Bets teamBets={teamBets} user={user}/>} />
+              <Route path="/favorites" element={<Favorites teamBets={teamBets} user={user}/>} />
               <Route path="/login" element={<Login setUser={setUser}/>} />
               <Route path="/signup" element={<SignUp setUser={setUser}/>} />
             </Routes>

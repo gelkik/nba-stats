@@ -1,16 +1,24 @@
 import React, { useContext, useState } from "react";
 import ReactCardFlip from "react-card-flip";
-// import { FavoriteContext } from "./App";
+import { FavoriteContext } from "./App";
 import Rating from '@mui/material/Rating';
 
 function Favorite({ teamBet }){
 
     const [flip,setFlip] = useState(false)
-    // const [favorites,setFavorites] = useContext(FavoriteContext)
+    const [favorites,setFavorites] = useContext(FavoriteContext)
 
     function handleClick(e){
         e.preventDefault()
         setFlip(!flip)
+    }
+
+    function removeFav(){
+        let index = favorites.indexOf(teamBet)
+        setFavorites([
+            ...favorites.slice(0, index),
+            ...favorites.slice(index + 1, favorites.length)
+          ])
     }
     
     return (
@@ -21,7 +29,9 @@ function Favorite({ teamBet }){
                     className="card__title">
                             <Rating
                                 name="simple-controlled"
+                                value={1}
                                 max={1}
+                                onClick={removeFav}
                             />
                         <div className="card__title-front">
                         {teamBet.away_team} vs. {teamBet.home_team}

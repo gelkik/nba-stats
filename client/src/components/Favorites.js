@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { FavoriteContext } from "./App";
+import Favorite from "./Favorite"
 
-function Favorites({teamBets}){
+function Favorites({teamBets,user}){
 
     // const [flip,setFlip] = useState(false)
     // const [favorites,setFavorites] = useContext(FavoriteContext)
@@ -17,14 +18,15 @@ function Favorites({teamBets}){
     return (
            <div>
             <ul className="favorites">
-                {/* {favorites.length ===0 ? <h1>No favorites yet!</h1>:favorites.map((teamBet)=>{
+                {/* {favorites.length === 0 ? <h1>None yet</h1>: <p>} */}
+                {favorites.length === 0 ? <h1>No favorites yet!</h1>:favorites.map((teamBet)=>{
                     return(
-                    <Favorites
+                    <Favorite
                         key={teamBet.id}
                         teamBet = {teamBet}
                     />
                     )
-                })} */}
+                })}
             </ul>
            </div>
     )

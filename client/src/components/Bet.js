@@ -9,8 +9,8 @@ function Bet({ teamBet }){
     const [favorites,setFavorites] = useContext(FavoriteContext)
 
     function favBet(){
-        if (!favorites.includes(teamBet.id)){
-            setFavorites([...favorites,teamBet.id])
+        if (!favorites.includes(teamBet)){
+            setFavorites([...favorites,teamBet])
             console.log(favorites)
         }
     }
