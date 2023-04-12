@@ -75,7 +75,7 @@ class Bets(Resource):
     def post(self):
         new_bet = Bet(
             bet_name=request.get_json()['bet_name'],
-            bet_odds=request.get_json()['bet_odds'],
+            # bet_odds=request.get_json()['bet_odds'],
             bet_date=request.get_json()['bet_date'],
         )
 
@@ -91,12 +91,35 @@ class Bets(Resource):
 
         return response
     
+class Favorite(Resource):
+    def post(self):
+        new_favorite = Bet(
+            bet_name=request.get_json()['bet_name'],
+            bet_odds=request.get_json()['bet_odds'],
+            bet_date=request.get_json()['bet_date'],
+        )
+
+        db.session.add(new_favorite)
+        db.session.commit()
+
+        response_dict = new_favorite.to_dict()
+
+        response = make_response(
+            response_dict,
+            201,
+        )
+
+        return response
+
+
+    
 api.add_resource(Signup, '/signup', endpoint='signup') 
 api.add_resource(Login, '/login', endpoint='login') 
 api.add_resource(Logout, '/logout', endpoint='logout') 
 api.add_resource(CheckSession, '/check_session', endpoint='check_session') 
 api.add_resource(ClearSession, '/clear', endpoint='clear') 
 api.add_resource(Bets, '/bets', endpoint='bets') 
+api.add_resource(Favorite, '/favorite', endpoint='favorite') 
 
 if __name__ == '__main__': 
     app.run(port=5555, debug=True)

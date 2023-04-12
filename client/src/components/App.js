@@ -13,14 +13,15 @@ function App() {
   const [user, setUser] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [teamBets,setTeamBets] = useState([])
-  const [favBets,setFavBets] = useState([])
+  // const [favBets,setFavBets] = useState([])
 
   const key = '9856a68566279b87b3115efb81358d3d'
   const sport = 'basketball_nba'
   const regions = 'us'
   const markets = 'h2h,spreads,totals'
-  let endpoint = `/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}&markets=${markets}`
+  // let endpoint = `/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}&markets=${markets}`
   // let endpoint = `/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}`
+  // `https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=9856a68566279b87b3115efb81358d3d&regions=us&markets=h2h,spreads&oddsFormat=american`
 
   useEffect(() => {
     // auto-login
@@ -32,14 +33,30 @@ function App() {
   }, []);
 
   useEffect(()=>{
-      fetch(`https://api.the-odds-api.com${endpoint}`)
+      // fetch(`https://api.the-odds-api.com$/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}&markets=${markets}`)
+      fetch(`https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=9856a68566279b87b3115efb81358d3d&regions=us&markets=h2h,spreads,totals`)
       .then(res=>res.json())
       .then(data=>(
           console.log(data),
-          setTeamBets(data),
-          setFavBets(data)
+          setTeamBets(data)
           ))
   },[])
+
+  // useEffect(()=>{
+  //   fetch('/bets',{
+  //     method: "POST",
+  //     headers: {
+  //         'Accept': 'application/json',
+  //         'Content-Type': 'application/json'
+  //       },
+  //     body: JSON.stringify(teamBets),
+  //   })
+  //   .then(res=>res.json())
+  //   .then(data=>(
+  //       console.log(data),
+  //       setTeamBets(data)
+  //       ))
+  //   },[])
 
   return (
     <FavoriteContext.Provider value={[favorites,setFavorites]}>
@@ -49,7 +66,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/bets" element={<Bets teamBets={teamBets}/>} />
-              <Route path="/favorites" element={<Favorites teamBets={favBets}/>} />
+              <Route path="/favorites" element={<Favorites teamBets={teamBets}/>} />
               <Route path="/login" element={<Login setUser={setUser}/>} />
               <Route path="/signup" element={<SignUp setUser={setUser}/>} />
             </Routes>
