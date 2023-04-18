@@ -15,11 +15,17 @@ function App() {
   const [teamBets,setTeamBets] = useState([])
   // const [favBets,setFavBets] = useState([])
 
-  const key = '9856a68566279b87b3115efb81358d3d'
+  // const key = '9856a68566279b87b3115efb81358d3d' kingeorge done
+  // const key = 'fef11c60b1eb76c52961a925f63acb65' gelkiksit done
+  // const key = '1d244e9e6fbc316063eece62fb897de3' gelkik done
+  // const key = 'bc2dd4385eaeba06c7f628b7341a1a35' playawesome2
+  const key = 'bc2dd4385eaeba06c7f628b7341a1a35'
+  // const key = 'fef11c60b1eb76c52961a925f63acb65'
+
   const sport = 'basketball_nba'
   const regions = 'us'
   const markets = 'h2h,spreads,totals'
-  // let endpoint = `/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}&markets=${markets}`
+  let endpoint = `/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}&markets=${markets}`
   // let endpoint = `/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}`
   // `https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=9856a68566279b87b3115efb81358d3d&regions=us&markets=h2h,spreads&oddsFormat=american`
 
@@ -33,8 +39,8 @@ function App() {
   }, []);
 
   useEffect(()=>{
-      // fetch(`https://api.the-odds-api.com$/v4/sports/${sport}/odds/?apiKey=${key}&regions=${regions}&markets=${markets}`)
-      fetch(`https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=9856a68566279b87b3115efb81358d3d&regions=us&markets=h2h,spreads,totals`)
+      // fetch(`https://api.the-odds-api.com$/${endpoint}`)
+      fetch(`https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=${key}&regions=us&markets=h2h,spreads,totals`)
       .then(res=>res.json())
       .then(data=>(
           console.log(data),

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FavoriteContext } from "./App";
 import Favorite from "./Favorite"
+import Data from "./Data";
 
 function Favorites({teamBets,user}){
 

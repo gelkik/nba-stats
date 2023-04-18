@@ -1,8 +1,8 @@
-"""Create Table
+"""Create Tables
 
-Revision ID: 01260e1c426d
+Revision ID: 3ebe030643f6
 Revises: 
-Create Date: 2023-04-11 10:24:09.756284
+Create Date: 2023-04-16 14:55:51.057686
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '01260e1c426d'
+revision = '3ebe030643f6'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,11 +22,22 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=True),
     sa.Column('team', sa.String(), nullable=True),
+    sa.Column('points', sa.Integer(), nullable=True),
+    sa.Column('rebounds', sa.Integer(), nullable=True),
+    sa.Column('assists', sa.Integer(), nullable=True),
+    sa.Column('threes', sa.Integer(), nullable=True),
+    sa.Column('date', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('teams',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('team_name', sa.String(), nullable=True),
+    sa.Column('points', sa.Integer(), nullable=True),
+    sa.Column('team_assists', sa.Integer(), nullable=True),
+    sa.Column('team_threes', sa.Integer(), nullable=True),
+    sa.Column('team_fgs', sa.Integer(), nullable=True),
+    sa.Column('team_rebounds', sa.Integer(), nullable=True),
+    sa.Column('date', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',

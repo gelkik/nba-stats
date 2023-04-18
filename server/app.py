@@ -65,13 +65,12 @@ class Logout(Resource):
     
 class Bets(Resource):
     def get(self):
-        def get(self): 
-            bets_all = [bets.to_dict for bets in Bet.query.all()] 
-            response = make_response( 
-                bets_all, 
-                200, 
-            ) 
-            return response
+        bets_all = [bets.to_dict() for bets in Bet.query.all()] 
+        response = make_response( 
+            bets_all, 
+            200, 
+        ) 
+        return response
     def post(self):
         new_bet = Bet(
             bet_name=request.get_json()['bet_name'],
@@ -79,39 +78,55 @@ class Bets(Resource):
             bet_date=request.get_json()['bet_date'],
         )
 
-        db.session.add(new_bet)
-        db.session.commit()
+        if new_bet.bet_name != Bet.query.filter(Bet.name == new_bet.bet_name).first():
+            db.session.add(new_bet)
+            db.session.commit()
 
-        response_dict = new_bet.to_dict()
+            response_dict = new_bet.to_dict()
 
-        response = make_response(
-            response_dict,
-            201,
-        )
+            response = make_response(
+                response_dict,
+                201,
+            )
 
         return response
     
 class Favorite(Resource):
     def post(self):
-        new_favorite = Bet(
-            bet_name=request.get_json()['bet_name'],
-            bet_odds=request.get_json()['bet_odds'],
-            bet_date=request.get_json()['bet_date'],
+        new_favorite = Favorite(
+            bet_id=request.get_json()['bet_id'],
         )
 
-        db.session.add(new_favorite)
-        db.session.commit()
+        if new_favorite.bet_name != Favorite.query.filter(Favorite.bet_id == new_favorite.bet_id).first():
+            db.session.add(new_favorite)
+            db.session.commit()
 
-        response_dict = new_favorite.to_dict()
+            response_dict = new_favorite.to_dict()
 
-        response = make_response(
-            response_dict,
-            201,
-        )
+            response = make_response(
+                response_dict,
+                201,
+            )
 
         return response
 
+class Teams(Resource):
+    def get(self):
+        teams_all = [teams.to_dict() for teams in Team.query.all()] 
+        response = make_response( 
+            jsonify(teams_all), 
+            200, 
+        ) 
+        return response
 
+class Players(Resource):
+    def get(self):
+        players_all = [players.to_dict() for players in Player.query.all()] 
+        response = make_response( 
+            jsonify(players_all), 
+            200, 
+        ) 
+        return response
     
 api.add_resource(Signup, '/signup', endpoint='signup') 
 api.add_resource(Login, '/login', endpoint='login') 
@@ -120,6 +135,8 @@ api.add_resource(CheckSession, '/check_session', endpoint='check_session')
 api.add_resource(ClearSession, '/clear', endpoint='clear') 
 api.add_resource(Bets, '/bets', endpoint='bets') 
 api.add_resource(Favorite, '/favorite', endpoint='favorite') 
+api.add_resource(Teams, '/teams', endpoint='teams') 
+api.add_resource(Players, '/players', endpoint='players') 
 
 if __name__ == '__main__': 
     app.run(port=5555, debug=True)
