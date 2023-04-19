@@ -30,13 +30,12 @@ function Bets({ teamBets, user }){
     // let date = new Date(teamBets[0].commence_time).toLocaleDateString();
     return(
         <div>
-            <h1 className="bets-today">
-            
-            </h1>
            {top.length===0 ? '' : 
-           <Data top={top} 
+           <Data 
+                top={top} 
                 teams = {teams}
                 players = {players}
+                className='bets-data'
             />}
             <ul className="bets">
                 {teamBets.map((teamBet)=>{

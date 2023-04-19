@@ -20,7 +20,6 @@ function App() {
   // const key = '1d244e9e6fbc316063eece62fb897de3' gelkik done
   // const key = 'bc2dd4385eaeba06c7f628b7341a1a35' playawesome2
   const key = 'bc2dd4385eaeba06c7f628b7341a1a35'
-  // const key = 'fef11c60b1eb76c52961a925f63acb65'
 
   const sport = 'basketball_nba'
   const regions = 'us'
@@ -56,7 +55,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/bets" element={<Bets teamBets={teamBets} user={user}/>} />
-              <Route path="/favorites" element={<Favorites teamBets={teamBets} user={user}/>} />
+              <Route path="/favorites" element={<Favorites user={user}/>} />
               <Route path="/login" element={<Login setUser={setUser}/>} />
               <Route path="/signup" element={<SignUp setUser={setUser}/>} />
             </Routes>

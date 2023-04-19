@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  /* background: linear-gradient(to top, #dfe9f3 0%, white 100%); */
+  background: rgb(236, 232, 232)
 }
 
 code {
@@ -58,6 +59,13 @@ ul {
   color:orange
 }
 
+.logout-button{
+  color: #fff;
+  text-decoration: none;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    cursor: pointer;
+}
 /* .cards__row {
   display: flex;
   padding: 1rem;
@@ -99,10 +107,16 @@ ul {
 }
 
 .card__title-back{
-  text-align: center;
   width: 50%;
   margin-bottom: 10em;
-  max-height: 40vh;
+  max-height: 100vh;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.data-teams{
+  text-align: center;
+  justify-content: center;
 }
 
 .card__title img{
@@ -118,6 +132,24 @@ ul {
   flex-direction:row;
 }
 
+.login-form{
+  /* padding-left:1vw;
+  padding-right:1vw; */
+  text-align: center;
+}
+.signup-text{
+  text-align: justify;
+  font-family: monospace;
+  flex-wrap: wrap;
+  padding-left:10vw;
+  padding-right:10vw;
+  font-size: '10%';
+}
+
+/* .bets-data{
+  padding: 1rem;
+  margin-bottom: 1rem;
+} */
 /* .card-rating{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

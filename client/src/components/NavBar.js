@@ -15,7 +15,7 @@ function NavBar({ user,setUser }) {
     });
   }
 
-  const [favorites,setFavorites] = useContext(FavoriteContext)
+  // const [favorites,setFavorites] = useContext(FavoriteContext)
 
   useEffect(()=>{
     console.log(user)
@@ -29,7 +29,7 @@ function NavBar({ user,setUser }) {
               <Link to="/bets">Bets</Link>
               <Link to="/favorites">Favorites</Link>
               {user ? (
-                <button onClick={handleLogoutClick}>Logout</button>
+                <ul className='logout-button'onClick={handleLogoutClick}>Logout</ul>
               ) : (
                 <>
                   <Link to="/signup">Signup</Link>

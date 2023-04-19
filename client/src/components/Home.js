@@ -16,4 +16,3 @@ function Home({ user }) {
   }
 export default Home;
 
-{/* <Route exact path="/" element={<Home user={user} />} /> */}

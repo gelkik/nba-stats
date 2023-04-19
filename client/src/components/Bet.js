@@ -43,16 +43,29 @@ function Bet({ teamBet, user }){
     const onLeave = () => {
         setHover(false);
     };
-
+    // console.log(favorites.id)
     function favBet(){
         if (user){
             if (!favorites.includes(teamBet)){
                 setFavorites([...favorites,teamBet])
-                console.log(favorites)
+                // console.log(favorites)
             }
+            // fetch("/favorite", {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({ 
+            //         "favorite": favorites.id,
+            //      }),
+            //   })
+            // .then(r=>r.json())
+            // .then(data=>{
+            //     console.log(data)
+            // })
         }
     }
-
+    
     // function handleClick(e){
     //     e.preventDefault()
     //     setFlip(!flip)
@@ -94,7 +107,8 @@ function Bet({ teamBet, user }){
                             onMouseLeave={onLeave}
                         />
                             <CardActionArea>
-                            <CardContent>
+                            <CardContent
+                            >
                                 <Typography 
                                     sx={{textAlign: 'center', fontWeight: '750'}}
                                     className = 'card-title-date' 
