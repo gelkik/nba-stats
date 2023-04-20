@@ -36,8 +36,8 @@ teams = ["ATLANTA HAWKS","BOSTON CELTICS", "BROOKLYN NETS", "CHARLOTTE HORNETS",
 def adding_teams():
     teams = []
     tod = dt.datetime.today()
-    count = 1
-    while count < 5:
+    count = 14
+    while count < 15:
         d = dt.timedelta(days = count)
         a = tod - d
         x = client.team_box_scores(day=a.day, month=a.month, year=a.year)
@@ -62,12 +62,11 @@ def adding_teams():
     db.session.add_all(teams)
     db.session.commit()
 
-
 def adding_players():
     players = []
-    count = 1
+    count = 13
     tod = dt.datetime.today()
-    while count < 4:
+    while count < 15:
         d = dt.timedelta(days = count)
         a = tod - d
         x = client.player_box_scores(day=a.day, month=a.month, year=a.year)
@@ -94,10 +93,11 @@ def adding_players():
     db.session.commit()
 
 
+
 if __name__ == '__main__':
     with app.app_context():
-        # Player.query.delete()
         # Team.query.delete()
+        # Player.query.delete()
         # Bet.query.delete()
         # Favorite.query.delete()
         # User.query.delete()

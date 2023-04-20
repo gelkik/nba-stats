@@ -79,7 +79,7 @@ class Favorite(db.Model,SerializerMixin):
     serialize_rules = ('-bet.favorites',)
 
     id = db.Column(db.Integer, primary_key = True)
-
+    favorite = db.Column(db.String, primary_key = True)
     bet_id = db.Column(db.Integer,db.ForeignKey('bets.id'))
     
 class User(db.Model, SerializerMixin):

@@ -30,7 +30,7 @@ function Bets({ teamBets, user }){
     // let date = new Date(teamBets[0].commence_time).toLocaleDateString();
     return(
         <div>
-           {top.length===0 ? '' : 
+           {top.length===0 ? <h1 style={{fontFamily:'monospace', color:'white',display: 'flex', justifyContent:'center', alignItems:'center'}}>Click on a bet to see insights.</h1> : 
            <Data 
                 top={top} 
                 teams = {teams}
@@ -50,7 +50,6 @@ function Bets({ teamBets, user }){
                                 user = {user}
                                 
                             />
-
                         </div>
                     )
                 })}

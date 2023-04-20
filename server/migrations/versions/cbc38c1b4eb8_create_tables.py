@@ -1,8 +1,8 @@
 """Create Tables
 
-Revision ID: 3ebe030643f6
+Revision ID: cbc38c1b4eb8
 Revises: 
-Create Date: 2023-04-16 14:55:51.057686
+Create Date: 2023-04-19 20:01:32.806593
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3ebe030643f6'
+revision = 'cbc38c1b4eb8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -50,7 +50,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('bet_name', sa.String(), nullable=True),
     sa.Column('bet_odds', sa.Integer(), nullable=True),
-    sa.Column('bet_date', sa.DateTime(), nullable=True),
+    sa.Column('bet_date', sa.String(), nullable=True),
     sa.Column('team_id', sa.Integer(), nullable=True),
     sa.Column('player_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['player_id'], ['players.id'], name=op.f('fk_bets_player_id_players')),
@@ -59,9 +59,10 @@ def upgrade():
     )
     op.create_table('favorites',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('favorite', sa.String(), nullable=False),
     sa.Column('bet_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['bet_id'], ['bets.id'], name=op.f('fk_favorites_bet_id_bets')),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', 'favorite')
     )
     # ### end Alembic commands ###
 

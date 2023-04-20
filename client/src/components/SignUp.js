@@ -36,6 +36,15 @@ function SignUp({ setUser }) {
       <Box
         sx={{
             '& .MuiTextField-root': { m: 1, width: '25ch' },
+            border: 1,
+            borderRadius: '16px',
+            color:"white", 
+            backgroundColor:'white',
+            width: '50%',
+            justifyContent:"center",
+            alignItems:"center",
+            marginLeft: '25%',
+            marginTop: '5vw'
         }}
         noValidate
         autoComplete="off"
@@ -51,7 +60,7 @@ function SignUp({ setUser }) {
           <TextField 
             InputLabelProps={{ shrink: true }} 
             margin="dense"
-            style = {{width: '30%'}}
+            style = {{width: '50%'}}
             id="username" 
             label="Username" 
             variant="outlined" 
@@ -64,7 +73,7 @@ function SignUp({ setUser }) {
             type='password'
             InputLabelProps={{ shrink: true }} 
             margin="dense"
-            style = {{width: '30%'}}
+            style = {{width: '50%'}}
             id="password" 
             label="Password" 
             variant="outlined" 
@@ -77,7 +86,7 @@ function SignUp({ setUser }) {
             type='password'
             InputLabelProps={{ shrink: true }} 
             margin="dense"
-            style = {{width: '30%'}}
+            style = {{width: '50%'}}
             id="password_confirmation" 
             label="Password Confirmation" 
             variant="outlined" 
@@ -93,6 +102,9 @@ function SignUp({ setUser }) {
           >
             Sign Up
           </Button>
+          <br />
+          <br />
+          <br />
         </form>
       </Box>
     </div>

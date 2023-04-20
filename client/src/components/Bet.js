@@ -97,7 +97,7 @@ function Bet({ teamBet, user }){
     return (
                 <div
                     className="card__title">
-                    <Card sx={{ maxWidth: 300 }}>
+                    <Card sx={{ maxWidth: 300, marginTop: '10%', marginBottom: '5%', marginRight: '10%' }}>
                         <Rating
                             name="simple-controlled"
                             value={favorites.includes(teamBet)? 1:0}

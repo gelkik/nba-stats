@@ -6,7 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background: linear-gradient(to top, #dfe9f3 0%, white 100%); */
-  background: rgb(236, 232, 232)
+  /* background: rgb(236, 232, 232) */
+  background: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
 }
 
 code {
@@ -15,8 +16,8 @@ code {
 }
 
 .navbar {
-  width: 100%;
-  min-height: 10vh;
+  /* width: 100%; */
+  /* min-height: 10vh; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -34,7 +35,7 @@ code {
 ul {
   display: flex;
   gap: 1rem;
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
   list-style: none;
 }
 
@@ -95,6 +96,17 @@ ul {
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
 }
+.favorites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: '100%';
+  margin: 0 auto;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 0.25rem;
+}
 
 .card-container {
   width: calc(33.33% - 10px);
@@ -102,6 +114,9 @@ ul {
   
 }
 
+.card__title{
+  margin-top: 10vw;
+}
 .card__title-front{
   text-align: center;
 }
@@ -112,12 +127,9 @@ ul {
   max-height: 100vh;
   padding: 1rem;
   margin-bottom: 1rem;
+  color:white
 }
 
-.data-teams{
-  text-align: center;
-  justify-content: center;
-}
 
 .card__title img{
   max-width: 100%;
@@ -136,6 +148,7 @@ ul {
   /* padding-left:1vw;
   padding-right:1vw; */
   text-align: center;
+  color:black
 }
 .signup-text{
   text-align: justify;
@@ -144,6 +157,45 @@ ul {
   padding-left:10vw;
   padding-right:10vw;
   font-size: '10%';
+  color: white;
+}
+
+.home-text{
+  margin-top: 10vw;
+  text-align: justify;
+  font-family: monospace;
+  flex-wrap: wrap;
+  padding-left:10vw;
+  padding-right:10vw;
+  font-size: 1.8vw;
+  color: white;
+}
+.home-bet{
+  justify-content: center;
+}
+
+@media (max-width:600px){
+  .home-text{
+    font-size: 3vw;
+  }
+  .App .navbar .nav-links {
+    width: 0%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 60%;
+    margin-right: 30vw;
+  }
+  .logo{
+    font-size: 6vw;
+    margin-right: 10vw;
+  }
+  .login-form{
+    /* padding-left:1vw;
+    padding-right:1vw; */
+    text-align: center;
+    color:black;
+  }
 }
 
 /* .bets-data{

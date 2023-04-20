@@ -78,26 +78,26 @@ class Bets(Resource):
             bet_date=request.get_json()['bet_date'],
         )
 
-        if new_bet.bet_name != Bet.query.filter(Bet.name == new_bet.bet_name).first():
-            db.session.add(new_bet)
-            db.session.commit()
+        # if new_bet.bet_name != Bet.query.filter(Bet.name == new_bet.bet_name).first():
+        db.session.add(new_bet)
+        db.session.commit()
 
-            response_dict = new_bet.to_dict()
+        response_dict = new_bet.to_dict()
 
-            response = make_response(
-                response_dict,
-                201,
-            )
+        response = make_response(
+            response_dict,
+            201,
+        )
 
         return response
     
 class Favorite(Resource):
     def post(self):
         new_favorite = Favorite(
-            bet_id=request.get_json()['bet_id'],
+            favorite=request.get_json()['favorite'],
         )
 
-        if new_favorite.bet_name != Favorite.query.filter(Favorite.bet_id == new_favorite.bet_id).first():
+        if new_favorite.favorite != Favorite.query.filter(Favorite.favorite == new_favorite.favorite).first():
             db.session.add(new_favorite)
             db.session.commit()
 

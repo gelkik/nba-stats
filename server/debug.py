@@ -20,6 +20,7 @@ x = client.player_box_scores(day=2, month=4, year=2023)[0]
 tod = dt.datetime.today()
 d = dt.timedelta(days = 5)
 a = tod - d
+print(a.day)
 # print(a.day)
 
 month = dt.datetime.now().month
@@ -137,4 +138,4 @@ def add_team():
         }
         teams.append(teams_add)
     return teams
-print(add_team())
+# print(add_team())

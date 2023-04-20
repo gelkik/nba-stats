@@ -46,13 +46,27 @@ function Favorites({user}){
                         className='favorites-data'
                         />}
                 <ul className="favorites">
-                {favorites.length === 0 ? <h1>No favorites yet!</h1>:favorites.map((teamBet)=>{
+                {favorites.length === 0 ? 
+                <h1 
+                style={{ 
+                    fontSize: '2.5vw', 
+                    fontWeight: 'bold',
+                    color:'white', 
+                    fontFamily: 'monospace',
+                    textAlign:'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    marginTop: '10vw'
+            }}
+                >No favorites yet. <a href="/signup" style={{color: 'white',}}>Signup</a>  or <a href="/login" style={{color: 'white',}}>Login</a>  to have access to storing your favorites.</h1>:favorites.map((teamBet)=>{
                     return(
-                    <Favorite
-                        key={teamBet.id}
-                        teamBet = {teamBet}
-                        setTop={setTop}
-                    />
+                        <ul className="favorites">
+                            <Favorite
+                                key={teamBet.id}
+                                teamBet = {teamBet}
+                                setTop={setTop}
+                            />
+                            </ul>
                     )
                 })}
             </ul>

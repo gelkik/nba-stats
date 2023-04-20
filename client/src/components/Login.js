@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import { TextField,Box,Button } from '@mui/material'
 import {useNavigate  } from "react-router-dom";
 
+// import {
+//   MDBBtn,
+//   MDBContainer,
+//   MDBCard,
+//   MDBCardBody,
+//   MDBCardImage,
+//   MDBRow,
+//   MDBCol,
+//   MDBIcon,
+//   MDBInput
+// }
+// from 'mdb-react-ui-kit';
+
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +45,16 @@ function Login({ setUser }) {
     <div>
       <Box
         sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch' },
+            '& .MuiTextField-root': { m: 1, width: '25ch' }, 
+            border: 1,
+            borderRadius: '16px',
+            color:"white", 
+            backgroundColor:'white',
+            width: '50%',
+            justifyContent:"center",
+            alignItems:"center",
+            marginLeft: '25%',
+            marginTop: '5vw'
         }}
         noValidate
         autoComplete="off"
@@ -48,7 +70,7 @@ function Login({ setUser }) {
           <TextField 
             InputLabelProps={{ shrink: true }} 
             margin="dense"
-            style = {{width: '30%'}}
+            style = {{width: '50%'}}
             id="username" 
             label="Username" 
             variant="outlined" 
@@ -61,7 +83,7 @@ function Login({ setUser }) {
             type='password'
             InputLabelProps={{ shrink: true }} 
             margin="dense"
-            style = {{width: '30%'}}
+            style = {{width: '50%'}}
             id="password" 
             label="Password" 
             variant="outlined" 
@@ -77,8 +99,12 @@ function Login({ setUser }) {
           >
             Login
           </Button>
+          <br />
+          <br />
+          <br />
         </form>
       </Box>
+      
     </div>
   );
 }
