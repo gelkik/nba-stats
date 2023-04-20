@@ -23,7 +23,7 @@ function NavBar({ user,setUser }) {
 
   return (
     <div className="navbar">
-          <div className="logo">DataSlam</div>
+          <div className="logo">DataDunk</div>
            <ul className="nav-links">
               <Link to="/">Home</Link>
               <Link to="/bets">Bets</Link>

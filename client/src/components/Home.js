@@ -26,7 +26,7 @@ function Home({ teamBets,user }) {
           : 
           <h4 className="home">Please Login or Sign Up</h4>
           } */}
-          Welcome to <span style={{ fontSize: '120%', fontWeight: 'bold',color:'orange' }}>DataSlam</span>! Here, you can access 
+          Welcome to <span style={{ fontSize: '120%', fontWeight: 'bold',color:'orange' }}>DataDunk</span>! Here, you can access 
           NBA data that will optimize your betting experience. We do not tell you what bets to make, nor are we a betting site. 
           We're all about data-driven decision making; collecting data from each team and their respective players, and displaying them
           simply and effectively, right at the palm of your hands, so that you can have a better strategy before making any
