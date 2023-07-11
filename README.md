@@ -4,7 +4,7 @@ DataDunk is a real-time NBA analysis application that gives insights into NBA te
 
 Data Dank displays all upcoming matchup bets as well as their respective odds.
 
-Clicking on each matchup card will display the rescpective teams' data from their last few games, so bettors have a better understanding
+Clicking on each matchup card will display the respective teams' data from their last few games, so bettors have a better understanding
 of a team's recent performances.
 
 ## Demo
